@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -25,8 +26,41 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('My Schedule'),
         actions: [
+          Stack(
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.notifications),
+                onPressed: () {
+                  // Aksi ketika ikon notifikasi ditekan
+                },
+              ),
+              Positioned(
+                right: 11,
+                top: 11,
+                child: Container(
+                  padding: EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  constraints: BoxConstraints(
+                    minWidth: 12,
+                    minHeight: 12,
+                  ),
+                  child: Text(
+                    '1', // Jumlah notifikasi
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 8,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
           CircleAvatar(
-            backgroundImage: AssetImage('assets/profile.png'), // Your profile image
+            backgroundImage: AssetImage('assets/avatar/profile.png'), // Ganti dengan gambar profil Anda
           ),
           SizedBox(width: 16),
         ],
@@ -140,15 +174,15 @@ class TaskCard extends StatelessWidget {
             Row(
               children: [
                 CircleAvatar(
-                  backgroundImage: AssetImage('assets/person1.png'), // Replace with your image
+                  backgroundImage: AssetImage('assets/avatar/person1.png'), // Ganti dengan gambar Anda
                 ),
                 SizedBox(width: 10),
                 CircleAvatar(
-                  backgroundImage: AssetImage('assets/person2.png'), // Replace with your image
+                  backgroundImage: AssetImage('assets/avatar/person2.png'), // Ganti dengan gambar Anda
                 ),
                 SizedBox(width: 10),
                 CircleAvatar(
-                  backgroundImage: AssetImage('assets/person3.png'), // Replace with your image
+                  backgroundImage: AssetImage('assets/avatar/person3.png'), // Ganti dengan gambar Anda
                 ),
                 Spacer(),
                 IconButton(
